@@ -1,0 +1,521 @@
+/*
+ * Antikode main.scss
+ * Version - 1.1.1
+ *
+ * Copyright (c) 2018 Antikode
+ */
+
+/* ==========================================================================
+   Import
+   ========================================================================== */
+
+/* Required
+-------------------------------------------------- */
+@import "../plugins/bootstrap-4.1.3/scss/functions";
+@import "variables-custom"; // Custom variables
+@import "../plugins/bootstrap-4.1.3/scss/variables";
+@import "../plugins/bootstrap-4.1.3/scss/mixins";
+
+/* Optional
+-------------------------------------------------- */
+@import "../plugins/bootstrap-4.1.3/scss/root";
+@import "../plugins/bootstrap-4.1.3/scss/reboot";
+@import "../plugins/bootstrap-4.1.3/scss/type";
+@import "../plugins/bootstrap-4.1.3/scss/images";
+@import "../plugins/bootstrap-4.1.3/scss/code";
+@import "../plugins/bootstrap-4.1.3/scss/grid";
+@import "../plugins/bootstrap-4.1.3/scss/tables";
+@import "../plugins/bootstrap-4.1.3/scss/forms";
+@import "../plugins/bootstrap-4.1.3/scss/buttons";
+@import "../plugins/bootstrap-4.1.3/scss/transitions";
+@import "../plugins/bootstrap-4.1.3/scss/dropdown";
+@import "../plugins/bootstrap-4.1.3/scss/button-group";
+@import "../plugins/bootstrap-4.1.3/scss/input-group";
+@import "../plugins/bootstrap-4.1.3/scss/custom-forms";
+@import "../plugins/bootstrap-4.1.3/scss/nav";
+@import "../plugins/bootstrap-4.1.3/scss/navbar";
+@import "../plugins/bootstrap-4.1.3/scss/card";
+@import "../plugins/bootstrap-4.1.3/scss/breadcrumb";
+@import "../plugins/bootstrap-4.1.3/scss/pagination";
+@import "../plugins/bootstrap-4.1.3/scss/badge";
+@import "../plugins/bootstrap-4.1.3/scss/jumbotron";
+@import "../plugins/bootstrap-4.1.3/scss/alert";
+@import "../plugins/bootstrap-4.1.3/scss/progress";
+@import "../plugins/bootstrap-4.1.3/scss/media";
+@import "../plugins/bootstrap-4.1.3/scss/list-group";
+@import "../plugins/bootstrap-4.1.3/scss/close";
+@import "../plugins/bootstrap-4.1.3/scss/modal";
+@import "../plugins/bootstrap-4.1.3/scss/tooltip";
+@import "../plugins/bootstrap-4.1.3/scss/popover";
+@import "../plugins/bootstrap-4.1.3/scss/carousel";
+@import "../plugins/bootstrap-4.1.3/scss/utilities";
+@import "../plugins/bootstrap-4.1.3/scss/print";
+
+/* Additional Custom SASS
+-------------------------------------------------- */
+@import "mixins-andy"; // Andy.scss (modified)
+@import "mixins-custom"; // Custom mixins & utilities classes
+@import "utilities-custom"; // Custom mixins & utilities classes
+@import "components-custom"; // Custom components classes
+
+/* Optional Library Plugins
+-------------------------------------------------- */
+/// Font Awesome 5
+// For general font icons
+@import "../plugins/fontawesome-5.5.0/css/all.min.css"; 
+
+/// jQuery UI
+// Has dependency on script.php
+@import "../plugins/jquery-ui-1.12.1/jquery-ui.min.css";
+
+/// Animate CSS
+// For main animations
+@import "../plugins/animate-css-3.6.0/animate.min.css"; 
+
+/// Fancy Box
+// For lightbox
+// Has dependency on script.php
+@import "../plugins/fancybox-3.3.5/jquery.fancybox.min.css";
+
+/// Owl Carousel CSS
+// For advanced carousel
+// Some has dependency on script.php
+@import "../plugins/owl-carousel-2.2.1/owl.carousel.css";
+@import "../plugins/owl-carousel-2.2.1/owl.theme.default.min.css";
+
+/// Slick Slider
+// For advanced slider
+// Has dependency on script.php
+@import "../plugins/slick-1.8.1/slick.scss";
+@import "../plugins/slick-1.8.1/slick-theme.scss";
+
+/// Select2
+// For custom select 
+// Has dependency on script.php
+@import "../plugins/select2-4.0.6/select2.min.css"; 
+
+/// DataTables
+// For advanced table
+// Has dependency on script.php
+@import "../plugins/datatables-1.10.16/datatables.min.css"; 
+
+/// Progress Button
+// For button progress animation
+// Has dependency on script.php
+@import "../plugins/progressbutton-1.0.0/component.css";
+
+/// Antikode Custom CSS
+// For component based CSS customized by the author
+// Some has dependency on script.php
+// @import "../plugins/antikode-custom-1.0.0/animate.scss";
+
+/// Icomoon
+// For custom icon fonts
+// @import "../plugins/icomoon/style.scss";
+
+
+/* ========================================================================================================================================
+   Common Components
+   ========================================================================================================================================= */
+
+.content-center {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.location-box {
+  position: relative;
+  margin-bottom: 1rem;
+  .location-info {
+    position: absolute;
+    bottom: 0;
+    padding: 1.5rem;
+    width: 100%;
+    background: url(../../assets/img/common/overlay.png) no-repeat;
+    background-size: 100%;
+    color: $white;
+    h4 { margin-bottom: 0rem;}
+    p {
+      margin-bottom: 0; 
+      color: rgba($white, .75); 
+      font-size: .9rem; 
+      font-weight: 300;
+    }
+  }
+}
+
+.instagram-box {
+  position: relative;
+  .instagram-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    background-color: rgba($black, .55);
+    opacity: 0;
+    transition: $transition-base;
+    @include media-breakpoint-down(md) {
+      text-align: center;
+      padding: .5rem;
+      img {display: none;}
+    }
+    .btn-w-icon {
+      background-color: $primary;
+      text-align: center;
+      span {
+        @include media-breakpoint-down(md) {
+          font-size: 70%;
+          text-align: center;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+  &:hover {
+    .instagram-overlay {opacity: 1;}
+  }
+}
+
+.box {
+  transition: $transition-base;
+  .box-yellow {
+    background-color: $yellow-2;
+    position: relative;
+  }
+  .box-white {
+    background-color: $white;
+  }
+}
+
+
+/* ==========================================================================
+   Type
+   ========================================================================== */
+
+/* Custom Fonts
+-------------------------------------------------- */
+@include font-face('Montserrat', 'Montserrat-Light', 200);
+@include font-face('Montserrat', 'Montserrat-Medium', 400);
+@include font-face('Montserrat', 'Montserrat-Black', 600);
+
+@include font-face('Citizen', 'Citizen-Bold', 600);
+
+/* ==========================================================================
+   Navbar
+   ========================================================================== */
+
+  /* Navbar Fixed Top
+  -------------------------------------------------- */
+  .navbar.fixed-top {
+    & + * {
+      margin-top: 56px;
+      @include media-breakpoint-up(md) {
+        margin-top: 63px !important;
+      }
+    }
+  }
+
+  .navbar {
+    background-color: $black;
+    .navbar-nav-left {
+      li {
+        @include media-breakpoint-up(md) {
+          position: relative;
+          left: -2rem;
+        }
+      }
+    }
+    .navbar-nav-right {
+      li {
+        @include media-breakpoint-up(md) {
+          position: relative;
+          left: 1rem;
+        }
+      }
+    }
+    .navbar-nav {
+      .nav-item {
+        @include media-breakpoint-up(md) {
+          margin: 0 .75rem;
+        }
+        .nav-link {
+          color: $white !important;
+          @include media-breakpoint-up(md) {
+            padding: 1rem .75rem;
+          }
+          &:hover, &:focus, &:active {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+/* General
+-------------------------------------------------- */
+.btn-primary {
+	color: $white;
+	&:hover, &:focus, &:active {
+		color: $white;
+	}
+}
+
+.btn-secondary {
+  background-color: $white;
+  color: $primary !important;
+  border-color: transparent;
+  &:hover, &:focus, &:active {
+    border-color: $primary;
+    color: $white !important;
+    background-color: $primary;
+    box-shadow: $box-shadow;
+  }
+}
+
+.btn-w-icon {
+  text-align: left;
+  padding-left: 0;
+  .img-icon {
+    display: inline-block;
+    width: 30px;
+  }
+  span {
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 1;
+    position: relative;
+    top: 2px;
+    text-transform: uppercase;
+    color: $white;
+    margin-left: .5rem;
+    @include media-breakpoint-down(md) {
+      top: 0;
+      left: .25rem;
+    }
+  }
+  i {
+    color: $white;
+    margin-left: .75rem;
+    transition: $transition-base;
+  }
+  &:hover {
+    i { margin-left: 1.1rem; }
+  }
+}
+
+/* Heading
+-------------------------------------------------- */
+.heading {
+  h2 {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+/* ==========================================================================
+   Form Group
+   ========================================================================== */
+.form-group {
+  .input-group-text {background-color: transparent;}
+}
+
+/* ==========================================================================
+   Section Cover Eatlah
+   ========================================================================== */
+
+// Add custom styles here
+.cover-eatlah {
+  height: 700px;
+  .cover-content {
+    .img-tagline-cover {
+      width: 100%;
+      position: relative;
+      left: -1rem;
+      @include media-breakpoint-up(md) {
+        width: 80%;
+      }
+    }
+  }
+}
+/* ==========================================================================
+   Section About Eatlah
+   ========================================================================== */
+
+.section-product {
+  background: url(../../assets/img/common/bg_about.jpg) no-repeat;
+  background-size: cover;
+  .heading {
+    p {
+      margin-bottom: 5rem;
+      color: rgba($white, .75);
+    }
+    h2 {
+      color: $yellow;
+    }
+  }
+  .img-fluid {
+    width: 25px;
+    margin-bottom: 1rem;
+    background-size: 100%;
+    p {
+      color: rgba($white, .75);
+    }
+    h2 { 
+      color: $yellow;
+    }
+    @include media-breakpoint-up(md) {
+      width: 50rem;
+      margin-bottom: 0;
+    }
+    @include media-breakpoint-down(md) {
+      width: 25rem;
+      margin-bottom: 30px;
+    }
+  }
+    .heading {
+      p {
+        margin-bottom: 1.75rem;
+      }
+      @include media-breakpoint-up(md) {
+        margin-bottom: 5rem;
+      }
+    }
+  }
+
+  .btn {
+    margin-top: 3rem;
+    @include media-breakpoint-down(md) {
+      margin-top: .75rem;
+    }
+  }
+  /* ==========================================================================
+   Section Menu Eatlah
+   ========================================================================== */
+
+.section-menu {
+  background: url(../../assets/img/common/bg_menu.jpg) no-repeat;
+  background-size: cover;
+  .content {
+    margin-top: 1.5rem;
+    @include media-breakpoint-up(md) {
+      margin-top: 5rem;
+    }
+    .menu-title {
+      position: relative;
+      margin-bottom: 3rem;
+      &:before {
+        position: absolute;
+        content: '';
+        bottom: -1.5rem;
+        background-color: $maroon;
+        height: 4px;
+        width: 50px;
+        border-radius: 8rem;
+      }
+    }
+    p { margin-bottom: 1rem; }
+  }
+  .col-md-6 {
+    margin-bottom: 1rem;
+    @include media-breakpoint-up(md) { 
+      padding-left: 4rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
+/* ==========================================================================
+   Section Our Location
+   ========================================================================== */
+
+  .section-location {
+    background-color: $maroon-dark;
+    .row {
+      margin-top: 2.5rem;
+      @include media-breakpoint-up(md) {
+        margin-top: 5rem;
+      }
+    }
+    .heading { 
+      color: $white; 
+    }
+    .content {
+      margin-top: 3rem;
+    }
+    .btn {
+      margin-top: .75rem;
+      @include media-breakpoint-up(md) {
+        margin-top: 1.5rem;
+      }
+    }
+  }
+
+  .card {
+    margin-bottom: 2rem;
+  }
+
+  .card-location-new {
+    cursor: pointer;
+    h4 {
+      margin-bottom: 0;
+    }
+    p {
+      margin-bottom: 0;
+    }
+    &.card1 {background-color: $yellow;}
+    &.card2 {background-color: $teal;}
+    &.card3 {background-color: $cyan;}
+    &.card4 {background-color: $green;}
+    &.card5 {background-color: $blue;}
+    &.card6 {background-color: $golden;}
+    &:hover {
+      box-shadow: $box-shadow;
+    }
+  }
+
+  /* ==========================================================================
+   Section Contact Eatlah
+   ========================================================================== */
+
+  .section-contact {
+    background-color: $maroon-dark;
+    .subheading {
+      @include media-breakpoint-up(md) {
+        margin: 2rem;
+      }
+      h4 {
+        color: $yellow; 
+        margin-bottom: 2rem;
+      }
+      p {
+        color: rgba($white, .8);
+        margin-bottom: .5rem;
+      }
+      a {color: $white;}
+    }
+  }
+/* ==========================================================================
+   Section Footer Eatlah
+   ========================================================================== */
+footer {
+  background-color: $maroon-dark;
+  color: $white;
+  p {
+    margin-bottom: 0;
+    text-align: center;
+    border-top: 1px solid;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
